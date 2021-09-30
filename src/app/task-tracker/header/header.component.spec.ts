@@ -2,24 +2,20 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+fdescribe('HeaderComponent', () => {
+  let fixture : HeaderComponent;
+  let uiServiceMock: any;
+  
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+     fixture = new HeaderComponent(
+      uiServiceMock
+     )
+  });
+
+  describe("Setup component", () => {
+    it('should initialise the component', () => {
+      
     })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  })
 });
