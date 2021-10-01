@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthGuardService } from './auth-guard.service';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { WeatherComponent } from './components/weather/weather.component';
 
 const routes: Routes = [
@@ -13,8 +15,14 @@ const routes: Routes = [
     path: 'weather', component : WeatherComponent
   },
   {
+    path: 'login', component : LoginComponent
+  },
+  {
+    path: 'forbidden', component: ForbiddenComponent
+  },
+  {
     path: '', component: HomeComponent, canActivate: [AuthGuardService], data: {
-      expectedRole : 'Admin'
+      roles : 'Admin'
     }
   }
 ];

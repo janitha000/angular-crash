@@ -10,15 +10,16 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
    import { Observable, throwError } from 'rxjs';
    import { retry, catchError } from 'rxjs/operators';
+import { AuthService } from './services/auth.service';
    
    @Injectable()
    export class GlobalInterceptor implements HttpInterceptor {
 
-    constructor(public router: Router) {}
+    constructor(public router: Router, private authService : AuthService) {}
     
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-      const token : string = "";
+      const token  = this.authService.userValue.token;
       request = request.clone({headers : request.headers.set('Authorization', `Bearer ${token}`)});
 
       return next.handle(request)
