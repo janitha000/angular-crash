@@ -5,6 +5,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { TodoComponent } from './components/todo/todo.component';
 import { WeatherComponent } from './components/weather/weather.component';
 
 const routes: Routes = [
@@ -16,6 +17,9 @@ const routes: Routes = [
   },
   {
     path: 'login', component : LoginComponent
+  },
+  {
+    path: 'todo', component: TodoComponent
   },
   {
     path: 'forbidden', component: ForbiddenComponent

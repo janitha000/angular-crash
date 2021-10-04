@@ -1,0 +1,13 @@
+<div class="todo" *ngFor="let todo of (todo$ | async)">
+    {{todo.id}} : {{todo.title}}
+   
+</div>
+<button (click)="onClick()">Click to Load</button>
+<button (click)="onAdd()">Add</button>
+<button (click)="onAddTime()">AddTime</button>
+
+<div class="time">{{time$ | async}}</div>
+<div class="time" *ngIf="showTime">{{time$ | async}}</div>
+
+<div class="p">Subjects</div>
+<div class="time">{{timeS$ | async}}</div>

@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GlobalInterceptor } from './GlobalInterceptor';
 import { LoginComponent } from './components/login/login.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { TodoComponent } from './components/todo/todo.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ForbiddenComponent } from './components/forbidden/forbidden.component';
     HomeComponent,
     WeatherComponent,
     LoginComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
