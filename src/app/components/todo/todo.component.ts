@@ -13,6 +13,7 @@ export class TodoComponent implements OnInit {
   time$! : Observable<string>;
   timeS$! : Subject<string>;
   showTime : boolean = false;
+  showIf : boolean = false;
 
   constructor(private todoService : TodoService) { }
 
@@ -21,6 +22,7 @@ export class TodoComponent implements OnInit {
     this.time$ = this.todoService.time;
     this.timeS$ = this.todoService.timeS;
     console.log(this.todo$)
+    console.log(this.showIf);
   }
 
   onClick() {

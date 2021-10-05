@@ -11,3 +11,15 @@
 
 <div class="p">Subjects</div>
 <div class="time">{{timeS$ | async}}</div>
+
+<ng-container *ngIf="showIf; then showIfTemplate; else noShowIfTemplate">
+    </ng-container>
+
+<ng-template #showIfTemplate>
+    <h4>This is the IF template</h4>
+    <p>{{showIf}}</p>
+</ng-template>
+
+<ng-template #noShowIfTemplate>
+    <h4>This is the ELSE template</h4>
+</ng-template>
