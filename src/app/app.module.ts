@@ -18,6 +18,8 @@ import { environment } from '../environments/environment';
 import { counterReducer } from './store/reducers/counter.reducer';
 import { CountComponent } from './components/counter/count/count.component';
 import { booksReducer } from './store/reducers/books.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { BooksEffects } from './store/effects/books.effects';
 
 
 @NgModule({
@@ -38,7 +40,11 @@ import { booksReducer } from './store/reducers/books.reducer';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({count : counterReducer, books : booksReducer}),
+    StoreModule.forRoot({
+      count : counterReducer, 
+      books : booksReducer
+    }),
+    EffectsModule.forRoot([BooksEffects]),
     //StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [] 
   ],

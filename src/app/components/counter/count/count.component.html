@@ -5,8 +5,10 @@
 
 
 
-<!-- <div *ngFor="let book of books$ | async; let i=index">
+<div *ngFor="let book of books$ | async; let i=index">
     <span>{{i+1}}.</span> {{book.volumeInfo.title}}
-</div> -->
+</div>
+<button (click)="onAddBook()">Add Book</button>
+<button (click)="onRemoveBook()">Remove Book</button>
 
-<div class="">{{books$ | async}}</div>
+<!-- <div class="">{{books$ | async}}</div> -->

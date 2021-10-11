@@ -6,6 +6,8 @@ import { Book } from 'src/app/models/books.model';
 import { selectBooks } from 'src/app/store/selectors/books.selectors';
 import { BooksState } from 'src/app/store/reducers/books.reducer';
 import { AppState } from 'src/app/models/appstate.model';
+import { addBook , deleteBookRequest, removeBook, retrieveBookListRequest} from 'src/app/store/actions/books.actions';
+
 
 
 @Component({
@@ -17,16 +19,14 @@ export class CountComponent implements OnInit {
   count$! : Observable<number>;
   books$! : Observable<Book[]>;
 
-  // constructor(private store: Store<{ count: number }>) {
-    constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>) {
     this.count$ = store.select('count');
     //this.books$ = store.pipe(select(selectBooks));
     this.books$ = store.select('books')
   }
 
   ngOnInit(): void {
-    console.log(this.count$.subscribe(data => console.log(data)))
-    console.log(this.books$.subscribe(data => console.log(data)))
+    this.store.dispatch(retrieveBookListRequest())
   }
 
   increment() {
@@ -41,4 +41,14 @@ export class CountComponent implements OnInit {
     this.store.dispatch(reset());
   }
 
+  onAddBook() {
+    let book : Book= {id : "4", volumeInfo: {title : "DDD Tech", author : "janitha"}}
+    this.store.dispatch(addBook({book}));
+
+  }
+
+  onRemoveBook(){
+    //this.store.dispatch(removeBook({bookId : "AAA"}) )
+    this.store.dispatch(deleteBookRequest({bookId: "AAAA"}))
+  }
 }
