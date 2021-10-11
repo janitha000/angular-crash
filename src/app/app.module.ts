@@ -12,6 +12,12 @@ import { GlobalInterceptor } from './GlobalInterceptor';
 import { LoginComponent } from './components/login/login.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { TodoComponent } from './components/todo/todo.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { counterReducer } from './store/reducers/counter.reducer';
+import { CountComponent } from './components/counter/count/count.component';
+import { booksReducer } from './store/reducers/books.reducer';
 
 
 @NgModule({
@@ -21,7 +27,8 @@ import { TodoComponent } from './components/todo/todo.component';
     WeatherComponent,
     LoginComponent,
     ForbiddenComponent,
-    TodoComponent
+    TodoComponent,
+    CountComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,10 @@ import { TodoComponent } from './components/todo/todo.component';
     FormsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    StoreModule.forRoot({count : counterReducer, books : booksReducer}),
+    //StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [] 
   ],
   providers: [
     {

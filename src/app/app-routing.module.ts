@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthGuardService } from './auth-guard.service';
+import { CountComponent } from './components/counter/count/count.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -23,6 +24,9 @@ const routes: Routes = [
   },
   {
     path: 'forbidden', component: ForbiddenComponent
+  },
+  {
+    path: 'counter', component: CountComponent
   },
   {
     path: '', component: HomeComponent, canActivate: [AuthGuardService], data: {

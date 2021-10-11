@@ -1,0 +1,12 @@
+<button (click)="increment()">Increment</button>
+<div class="">{{count$ | async }}</div>
+<button (click)="decrement()">Decrement</button>
+<button (click)="reset()">Reset</button>
+
+
+
+<!-- <div *ngFor="let book of books$ | async; let i=index">
+    <span>{{i+1}}.</span> {{book.volumeInfo.title}}
+</div> -->
+
+<div class="">{{books$ | async}}</div>
