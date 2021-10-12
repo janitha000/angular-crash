@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
+import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { BooksService } from 'src/app/services/books.service';
-import { deleteBookDone, deleteBookRequest, retrieveBookListDone, retrieveBookListRequest } from '../actions/books.actions';
+import { deleteBookDone, deleteBookRequest, retrieveBookListDone, retrieveBookListRequest, removeBook } from '../actions/books.actions';
 
 
 
@@ -23,12 +24,22 @@ export class BooksEffects {
   ))
 
   deleteBook$ = createEffect(() => this.actions$.pipe(
-    ofType(deleteBookRequest),
+    ofType(removeBook),
     switchMap((action) => {
       return this.booksService.deleteBook(action.bookId).pipe(
         map(() => deleteBookDone({bookId: action.bookId}))
       )
     })
   ) )
+
+  deleteBooks$ = createEffect(() => this.actions$.pipe(
+    ofType(deleteBookRequest),
+    mergeMap((action) => 
+      this.booksService.deleteBook(action.bookId).pipe(
+        map(() => deleteBookDone({bookId : action.bookId})),
+        catchError(() => EMPTY)
+      )
+    )
+  ))
 
 }
