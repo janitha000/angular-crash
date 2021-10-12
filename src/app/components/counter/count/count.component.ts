@@ -6,7 +6,7 @@ import { Book } from 'src/app/models/books.model';
 import { selectBooks } from 'src/app/store/selectors/books.selectors';
 import { BooksState } from 'src/app/store/reducers/books.reducer';
 import { AppState } from 'src/app/models/appstate.model';
-import { addBook , deleteBookRequest, removeBook, retrieveBookListRequest} from 'src/app/store/actions/books.actions';
+import { addBook , deleteBookRequest, removeBook, retrieveBookListRequest, updateBookRequest} from 'src/app/store/actions/books.actions';
 
 
 
@@ -50,5 +50,10 @@ export class CountComponent implements OnInit {
   onRemoveBook(){
     //this.store.dispatch(removeBook({bookId : "AAA"}) )
     this.store.dispatch(deleteBookRequest({bookId: "AAAA"}))
+  }
+
+  onUpdateBook() {
+    let book = {id : "AAAA", volumeInfo : {author : "Janitha", title : "ABC Tech Updated"}}
+    this.store.dispatch(updateBookRequest({book}))
   }
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
-import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
+import { catchError, concatMap, map, mergeMap, switchMap } from 'rxjs/operators';
 import { BooksService } from 'src/app/services/books.service';
-import { deleteBookDone, deleteBookRequest, retrieveBookListDone, retrieveBookListRequest, removeBook } from '../actions/books.actions';
+import { deleteBookDone, deleteBookRequest, retrieveBookListDone, retrieveBookListRequest, removeBook, updateBookRequest, updateBookDone } from '../actions/books.actions';
 
 
 
@@ -41,5 +41,15 @@ export class BooksEffects {
       )
     )
   ))
+
+  updateBook$ = createEffect(() => this.actions$.pipe(
+    ofType(updateBookRequest),
+    concatMap(({book}) => 
+      this.booksService.updateBook(book).pipe(
+        map(() => updateBookDone({book})),
+        catchError(() => EMPTY)
+      )
+    )
+  ), {dispatch: false})
 
 }

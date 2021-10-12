@@ -8,6 +8,8 @@ import { TaskTrackerHomeComponent } from './task-tracker-home/task-tracker-home.
 import { TaskTrackerRoutingModule } from './task-tracker-routing.module';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { taskRedcucer } from './store/task.reducer';
 
 
 
@@ -23,7 +25,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     TaskTrackerRoutingModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forFeature('tasks' , taskRedcucer)
   ],
   exports: [
   ]

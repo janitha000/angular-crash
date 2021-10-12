@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { addBook, deleteBookDone, deleteBookRequest, removeBook, retrieveBookListDone } from "../actions/books.actions";
+import { addBook, deleteBookDone, deleteBookRequest, removeBook, retrieveBookListDone, updateBookDone } from "../actions/books.actions";
 import { Book } from "../../models/books.model";
 
 export const initialState : Book[] = [
@@ -25,9 +25,14 @@ export const booksReducer = createReducer<Book[]>( initialState,
     on(deleteBookDone, (state: Book[], {bookId}) => {
         console.log(bookId)
         return  state.filter(x => x.id !== bookId);
-    }
-        
-    )
+    }),
+    on(updateBookDone, (state, action) => {
+        return state.map(book => {
+            if(book.id === action.book.id)
+                return Object.assign({}, book, action.book)
+            return book
+        })
+    })
 );
 
 

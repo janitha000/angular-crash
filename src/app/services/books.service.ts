@@ -22,4 +22,8 @@ export class BooksService {
   deleteBook(id : string) {
     return of(["AAAA"]);
   }
+
+  updateBook(book : Book) {
+    return of(book)
+  }
 }

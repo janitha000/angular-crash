@@ -9,3 +9,6 @@ export const retrieveBookListDone = createAction('[Book] Get Books Done', props<
 
 export const deleteBookRequest = createAction('[Book] Delete Book Request', props<{bookId: string}>());
 export const deleteBookDone = createAction('[Book] Delete Book Done', props<{bookId: string}>());
+
+export const updateBookRequest = createAction('[Book] Update Book Request', props<{book: Book}>());
+export const updateBookDone = createAction('[Book] Update Book Done', props<{book: Book}>());
