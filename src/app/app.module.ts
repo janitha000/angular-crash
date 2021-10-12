@@ -20,6 +20,8 @@ import { CountComponent } from './components/counter/count/count.component';
 import { booksReducer } from './store/reducers/books.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { BooksEffects } from './store/effects/books.effects';
+import { metaReducers, reducers } from './store/reducers/reducer';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 
 @NgModule({
@@ -40,13 +42,14 @@ import { BooksEffects } from './store/effects/books.effects';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({
-      count : counterReducer, 
-      books : booksReducer
-    }),
+    // StoreModule.forRoot({
+    //   count : counterReducer, 
+    //   books : booksReducer
+    // }),
     EffectsModule.forRoot([BooksEffects]),
-    //StoreModule.forRoot(reducers, { metaReducers }),
-    !environment.production ? StoreDevtoolsModule.instrument() : [] 
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [] ,
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [
     {

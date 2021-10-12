@@ -2,5 +2,6 @@ import { Book } from "./books.model";
 
 export interface AppState {
     count : number,
-    books : Book[]
+    books : Book[],
+    router : any
 }

@@ -12,3 +12,7 @@ export const deleteBookDone = createAction('[Book] Delete Book Done', props<{boo
 
 export const updateBookRequest = createAction('[Book] Update Book Request', props<{book: Book}>());
 export const updateBookDone = createAction('[Book] Update Book Done', props<{book: Book}>());
+
+export const filteredBook = createAction('[Book] Filter Book', props<{bookId: string}>());
+
+export const logout = createAction('[User] Logout')

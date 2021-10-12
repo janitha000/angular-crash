@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from "@ngrx/store";
-import { addBook, deleteBookDone, deleteBookRequest, removeBook, retrieveBookListDone, updateBookDone } from "../actions/books.actions";
+import { addBook, deleteBookDone, deleteBookRequest, filteredBook, removeBook, retrieveBookListDone, updateBookDone } from "../actions/books.actions";
 import { Book } from "../../models/books.model";
 
 export const initialState : Book[] = [
@@ -11,6 +11,7 @@ export const initialState : Book[] = [
 
 export interface BooksState  {
     books : Book[]
+    //filteredBook : string
 }
 
 export const booksReducer = createReducer<Book[]>( initialState,
@@ -32,8 +33,10 @@ export const booksReducer = createReducer<Book[]>( initialState,
                 return Object.assign({}, book, action.book)
             return book
         })
-    })
+    }),
+
 );
+
 
 
 
