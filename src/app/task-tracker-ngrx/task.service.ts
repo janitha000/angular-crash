@@ -33,7 +33,7 @@ export class TaskService {
     }
   ]
 
-  getTaskList() {
+  getTaskList() : Observable<TaskN[]>{
     return of(this.mockTasks);
   }
 }

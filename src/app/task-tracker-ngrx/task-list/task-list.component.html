@@ -1,7 +1,9 @@
 <div class="task-list__container" >
-    <ng-container *ngFor="let task of tasks">
+    <ng-container *ngFor="let task of tasks$ | async ">
         <app-task [task] ="task"></app-task>
     </ng-container>
+    <p-checkbox [(ngModel)]="filterEnabled" [binary]="true" label="Filter Completed TaskList" (onChange)="onFilterChange()"></p-checkbox> 
+
         
 </div>
 

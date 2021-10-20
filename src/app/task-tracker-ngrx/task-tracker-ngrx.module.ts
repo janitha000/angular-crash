@@ -7,6 +7,11 @@ import { TaskComponent } from './task/task.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import { FormsModule }    from '@angular/forms';
 import {CardModule} from 'primeng/card';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { TasksEffects } from './task-store/effects/tasks.effects';
+import { TaskNReducer } from './task-store/reducers/tasks.reducers';
+
 
 
 
@@ -21,7 +26,9 @@ import {CardModule} from 'primeng/card';
     TaskTrackerNgrxRoutingModule,
     CheckboxModule,
     FormsModule,
-    CardModule
+    CardModule,
+    StoreModule.forFeature('tasks', TaskNReducer ),
+    EffectsModule.forFeature([TasksEffects])
   ]
 })
 export class TaskTrackerNgrxModule { }

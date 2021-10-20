@@ -2,8 +2,9 @@
 <div class="task__container">
     <div class="task__list">
         <app-task-list></app-task-list>
-
-
     </div>
     <div class="task__add"></div>
+    <div class="task__filter">
+    <p-checkbox [(ngModel)]="filterEnabled" [binary]="true" label="Filter Completed" (onChange)="onFilterChange()"></p-checkbox> 
+    </div>
 </div>
