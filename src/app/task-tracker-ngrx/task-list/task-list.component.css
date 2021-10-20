@@ -1,0 +1,7 @@
+.task-list__container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}

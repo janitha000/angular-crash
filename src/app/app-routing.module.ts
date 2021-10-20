@@ -14,6 +14,9 @@ const routes: Routes = [
     path: 'tasks', loadChildren: () => import('./task-tracker/task-tracker.module').then(m => m.TaskTrackerModule)
   },
   {
+    path: 'tasks-ngrx', loadChildren: () => import('./task-tracker-ngrx/task-tracker-ngrx.module').then(m => m.TaskTrackerNgrxModule)
+  },
+  {
     path: 'weather', component : WeatherComponent
   },
   {

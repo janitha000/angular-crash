@@ -22,6 +22,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { BooksEffects } from './store/effects/books.effects';
 import { metaReducers, reducers } from './store/reducers/reducer';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { TaskTrackerNgrxModule } from './task-tracker-ngrx/task-tracker-ngrx.module';
+import {CheckboxModule} from 'primeng/checkbox';
+import {CardModule} from 'primeng/card';
+
+
 
 
 @NgModule({
@@ -38,6 +43,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     BrowserModule,
     AppRoutingModule,
     TaskTrackerModule,
+    TaskTrackerNgrxModule,
     FormsModule,
     HttpClientModule,
     FormsModule,
@@ -49,7 +55,9 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     EffectsModule.forRoot([BooksEffects]),
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [] ,
-    StoreRouterConnectingModule.forRoot()
+    StoreRouterConnectingModule.forRoot(),
+    CheckboxModule,
+    CardModule
   ],
   providers: [
     {

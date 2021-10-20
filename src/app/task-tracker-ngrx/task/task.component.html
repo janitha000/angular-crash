@@ -1,0 +1,17 @@
+<div class="task-n" >
+    <p-card [style]="styleOBJ">
+        <p-header>
+            <div class="task__header">
+                {{task.title}}
+                <p-checkbox [(ngModel)]="task.isCompleted" [binary]="true"></p-checkbox>
+            </div>            
+        </p-header>
+        <div class="task__content">
+            <p>{{task.description}}</p>
+            <p>{{task.updatedAt}}</p>
+        </div>
+        
+    </p-card>
+    
+    <p class="task__description"></p>
+</div>

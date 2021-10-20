@@ -1,0 +1,36 @@
+.task-n {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.task__header {
+    font-size: 1.5rem;
+    padding : 0.5rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.task__content > p:first-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.task__content > p:last-child {
+    font-size: 0.7rem;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: seagreen;
+}
