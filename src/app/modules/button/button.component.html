@@ -1,0 +1,14 @@
+
+<ng-container *ngTemplateOutlet="btnType === 'Text' ? text : image">
+
+</ng-container>
+
+<ng-template #text>
+    <button type="button" [ngStyle]="getBtnStyle()" (click)="onTextBtnClick($event)">
+        {{btnLabel | uppercase}}
+    </button>
+</ng-template>
+
+<ng-template #image>
+
+</ng-template>

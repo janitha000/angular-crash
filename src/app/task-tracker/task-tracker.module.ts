@@ -27,8 +27,6 @@ import { taskRedcucer } from './store/task.reducer';
     TaskTrackerRoutingModule,
     FormsModule,
     StoreModule.forFeature('tasks' , taskRedcucer)
-  ],
-  exports: [
   ]
 })
 export class TaskTrackerModule { }

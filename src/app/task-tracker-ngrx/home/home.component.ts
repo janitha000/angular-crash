@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   filterEnabled: boolean = false;
   tasks$! : Observable<TaskN[]>;
+  btnText : string = "Filter"
   
   constructor(private taskStore : Store<TaskN[]>) {
     this.tasks$ = taskStore.pipe(select(completedTasks));
@@ -35,6 +36,10 @@ export class HomeComponent implements OnInit {
     //   this.tasks$ = this.taskStore.pipe(select(completedTasks))
     // }
       
+  }
+
+  onClick($event : any){
+    console.log($event)
   }
 
 }

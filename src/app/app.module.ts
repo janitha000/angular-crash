@@ -37,7 +37,7 @@ import {CardModule} from 'primeng/card';
     LoginComponent,
     ForbiddenComponent,
     TodoComponent,
-    CountComponent
+    CountComponent,
   ],
   imports: [
     BrowserModule,

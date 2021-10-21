@@ -11,6 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { TasksEffects } from './task-store/effects/tasks.effects';
 import { TaskNReducer } from './task-store/reducers/tasks.reducers';
+import { ComponentsModule } from '../modules/components.module';
 
 
 
@@ -19,7 +20,7 @@ import { TaskNReducer } from './task-store/reducers/tasks.reducers';
   declarations: [
     HomeComponent,
     TaskListComponent,
-    TaskComponent
+    TaskComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +29,8 @@ import { TaskNReducer } from './task-store/reducers/tasks.reducers';
     FormsModule,
     CardModule,
     StoreModule.forFeature('tasks', TaskNReducer ),
-    EffectsModule.forFeature([TasksEffects])
-  ]
+    EffectsModule.forFeature([TasksEffects]),
+    ComponentsModule
+    ]
 })
 export class TaskTrackerNgrxModule { }

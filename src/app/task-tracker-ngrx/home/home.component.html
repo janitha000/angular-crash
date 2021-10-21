@@ -6,5 +6,6 @@
     <div class="task__add"></div>
     <div class="task__filter">
     <p-checkbox [(ngModel)]="filterEnabled" [binary]="true" label="Filter Completed" (onChange)="onFilterChange()"></p-checkbox> 
+    <app-button [btnLabel] ="btnText" (onBtnClick$) ="onClick($event)"></app-button>
     </div>
 </div>
