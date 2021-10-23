@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="">
+        <div class="" *ngFor="let item of todoStore.todos$ | async">
+            <h4>{{item.title}}</h4>
+        </div>
+        
+        <button (click)="addTodo()">Add</button>
+        <button (click)="deleteTodo()">Delete</button>
+    </div>
+    <div class="">
+       <app-task-right></app-task-right>
+    </div>
+
+</div>
+

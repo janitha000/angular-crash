@@ -17,6 +17,9 @@ const routes: Routes = [
     path: 'tasks-ngrx', loadChildren: () => import('./task-tracker-ngrx/task-tracker-ngrx.module').then(m => m.TaskTrackerNgrxModule)
   },
   {
+    path: 'tasks-obs', loadChildren: () => import('./task-obs/task-obs.module').then(m => m.TaskObsModule)
+  },
+  {
     path: 'weather', component : WeatherComponent
   },
   {
