@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToggleService } from 'src/app/services/toggle.service';
 import { TaskObsStore } from '../state/task-obs-state.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class TaskRightComponent implements OnInit {
   constructor(public todoStore : TaskObsStore) { }
 
   ngOnInit(): void {
+    
   }
 
 }

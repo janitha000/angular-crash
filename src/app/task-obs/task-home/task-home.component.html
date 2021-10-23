@@ -7,7 +7,7 @@
         <button (click)="addTodo()">Add</button>
         <button (click)="deleteTodo()">Delete</button>
     </div>
-    <div class="">
+    <div class="" *ngIf="isRightEnabled">
        <app-task-right></app-task-right>
     </div>
 
