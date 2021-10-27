@@ -6,6 +6,7 @@ import { CountComponent } from './components/counter/count/count.component';
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { TodoNgsxComponent } from './components/todo-ngsx/todo-ngsx.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { WeatherComponent } from './components/weather/weather.component';
 
@@ -33,6 +34,9 @@ const routes: Routes = [
   },
   {
     path: 'counter', component: CountComponent
+  },
+  {
+    path: 'todo-ngsx', component: TodoNgsxComponent
   },
   {
     path: '', component: HomeComponent, canActivate: [AuthGuardService], data: {

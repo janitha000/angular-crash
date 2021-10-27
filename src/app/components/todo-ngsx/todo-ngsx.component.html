@@ -1,0 +1,6 @@
+<button (click)="AddToDo()">Add a Todo</button>
+<button (click)="RemoveToDo()">Delete a Todo</button>
+
+<div class="" *ngFor="let todoitem of todos$ | async">
+    {{todoitem.title}}
+</div>

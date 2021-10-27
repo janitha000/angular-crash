@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxsModule } from '@ngxs/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +26,11 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { TaskTrackerNgrxModule } from './task-tracker-ngrx/task-tracker-ngrx.module';
 import {CheckboxModule} from 'primeng/checkbox';
 import {CardModule} from 'primeng/card';
+import { ToDoState } from './ngsx-store/todo.state';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { CommonModule } from '@angular/common';
+import { TodoNgsxComponent } from './components/todo-ngsx/todo-ngsx.component';
 
 
 
@@ -38,6 +44,7 @@ import {CardModule} from 'primeng/card';
     ForbiddenComponent,
     TodoComponent,
     CountComponent,
+    TodoNgsxComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +64,16 @@ import {CardModule} from 'primeng/card';
     !environment.production ? StoreDevtoolsModule.instrument() : [] ,
     StoreRouterConnectingModule.forRoot(),
     CheckboxModule,
-    CardModule
+    CardModule,
+    NgxsModule.forRoot([
+      ToDoState
+    ], 
+    {
+      developmentMode: !environment.production
+    }),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
+    NgxsLoggerPluginModule.forRoot(),
+    CommonModule
   ],
   providers: [
     {
